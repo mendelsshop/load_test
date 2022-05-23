@@ -1,4 +1,3 @@
-// use colored::Color;
 use loading_bar::{LoadingBar, Color};
 use std::{io::Write, thread, time};
 
