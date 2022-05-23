@@ -1,5 +1,5 @@
-use colored::Color;
-use loading_bar::LoadingBar;
+// use colored::Color;
+use loading_bar::{LoadingBar, Color};
 use std::{io::Write, thread, time};
 
 fn main() {
