@@ -1,25 +1,45 @@
-use loading_bar::{LoadingBar, Color};
+use loading_bar::{Color, LoadingBar};
 use std::{io::Write, thread, time};
 
 fn main() {
-    let mut bar = LoadingBar::new(50, Some(Color::Green));
+    let mut bar = LoadingBar::new(4, Some(Color::Green));
+    // bar.display();
 
-    print!("{}", bar);
-    std::io::stdout().flush().unwrap();
     // flush stdout or else wont work properly
 
-    for _i in 0..5 {
+    for i in 0..9 {
         if bar.done {
             // we dont want to advance the bar if it is done
-            break;
+            return;
         }
-        let ten_millis = time::Duration::from_secs(3); // wow what a descriptive name
+        let ten_millis = time::Duration::from_secs_f32(1.0); // wow what a descriptive name
         thread::sleep(ten_millis); // sleep for 1 seconds
-        bar.advance_by_percent(25.0); // advancing by 25%
+
+        bar.advance_by(1);
+
+        match i {
+            0 => {
+                bar.change_color(Some(Color::Black));
+            }
+            1 => {
+                bar.change_color(Some(Color::BrightGreen));
+            }
+            2 => {
+                bar.change_color(Some(Color::Red));
+            }
+            3 => {
+                bar.change_color(Some(Color::Yellow));
+            }
+            _ => {
+                bar.change_color(None);
+            }
+        };
+
         print!("{}", bar);
-        bar.change_color(Color::Red);
+        // bar.display();
+
         // flush stdout or else wont work properly
         std::io::stdout().flush().unwrap();
     }
-    println!("");
+    println!();
 }
