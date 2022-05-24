@@ -15,7 +15,8 @@ fn main() {
         let ten_millis = time::Duration::from_secs_f32(1.0); // wow what a descriptive name
         thread::sleep(ten_millis); // sleep for 1 seconds
 
-        bar.advance_by(1);
+        // bar.advance_by_percent(600.0); this will panic because were going over a 100%
+        bar.advance_by(2);
 
         match i {
             0 => {
