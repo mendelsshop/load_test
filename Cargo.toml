@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 colored = "2.0.0"
-"loading_bar" = { git = 'https://github.com/mendelsshop/loading_bar' }
+loading_bar = "1.0.0"
+crossterm = "0.23.2"
